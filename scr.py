@@ -1,6 +1,6 @@
 import time
 from web3 import Web3
-from config import rpc, private_key
+from config_local import rpc, private_key
 
 
 class SushiSwap():
@@ -12,10 +12,10 @@ class SushiSwap():
         self.wallet = Web3.to_checksum_address("0xE2FFd8E80E3f4aaBeC6Ac4786e164C1a5efA17b4")  # your wallet address
 
         self.buy_amount = 0  # Ether value to spend
-        self.gas = 500000  # gas limit
-        self.gwei = 5  # gwei
+        self.gas = 1000000  # gas limit
+        self.gwei = self.web3.eth.gas_price  # gwei
 
-        self.token_to_swap = self.web3.to_checksum_address("0xdd69db25f6d620a7bad3023c5d32761d353d3de9")
+        self.token_to_swap = self.web3.to_checksum_address("0x19E507da4DEF09910817c9Bd1026b17760f5196D")
         self.token_to_buy = self.web3.to_checksum_address("0x07865c6E87B9F70255377e024ace6630C1Eaa37F")
 
         self.router = self.web3.to_checksum_address("0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506")
